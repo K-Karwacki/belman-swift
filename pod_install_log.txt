@@ -1,0 +1,166 @@
+  Preparing
+
+Analyzing dependencies
+
+Inspecting targets to integrate
+  Using `ARCHS` setting to build architectures of target `Pods-belman`: (``)
+
+Resolving dependencies of `Podfile`
+  CDN: trunk Relative path: CocoaPods-version.yml exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_d_4_0.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/4/0/GoogleSignIn/8.1.0-vwg-eap-1.1.0/GoogleSignIn.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_4_4_a.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/4.2.0/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.0.0/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.1.0/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.2.0/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.3.0/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.4.0/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.5.1/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.5.2/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.5.3/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.5.4/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.5.5/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_b_b_9.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/2.0.0/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.6/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.5/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.6/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.6/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/4/0/GoogleSignIn/7.1.0/GoogleSignIn.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/4/0/GoogleSignIn/7.1.0-fac-eap-1.0.0/GoogleSignIn.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/4/0/GoogleSignIn/7.1.0-fac-beta-1.1.0/GoogleSignIn.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/4/0/GoogleSignIn/7.1.0-fac-beta-1.0.0/GoogleSignIn.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/4/0/GoogleSignIn/7.0.0/GoogleSignIn.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_2_c_c.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/c/c/GTMAppAuth/5.0.0/GTMAppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_c_e_3.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/4.5.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.2/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.4.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.4.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.5.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.6/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.5/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/c/c/GTMAppAuth/4.1.1/GTMAppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.2/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.4.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.4.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.5.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.5/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/b/9/AppAuth/1.7.6/AppAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/1.6.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/1.7.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/1.7.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/1.7.2/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/2.0.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/2.1.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/2.2.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/2.3.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.0.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.1.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.1.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.2.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.3.2/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.4.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.4.1/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.5.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/4/a/GoogleAPIClientForREST/3.5.5/GoogleAPIClientForREST.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.5.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+
+Comparing resolved specification to the sandbox manifest
+  A AppAuth
+  A GTMAppAuth
+  A GTMSessionFetcher
+  A GoogleAPIClientForREST
+  A GoogleSignIn
+
+Downloading dependencies
+
+-> Installing AppAuth (1.7.6)
+  > Copying AppAuth from `/Users/kamil/Library/Caches/CocoaPods/Pods/Release/AppAuth/1.7.6-d4f13` to `Pods/AppAuth`
+
+-> Installing GTMAppAuth (4.1.1)
+  > Copying GTMAppAuth from `/Users/kamil/Library/Caches/CocoaPods/Pods/Release/GTMAppAuth/4.1.1-f69bd` to `Pods/GTMAppAuth`
+
+-> Installing GTMSessionFetcher (3.5.0)
+  > Copying GTMSessionFetcher from `/Users/kamil/Library/Caches/CocoaPods/Pods/Release/GTMSessionFetcher/3.5.0-5aea5` to `Pods/GTMSessionFetcher`
+
+-> Installing GoogleAPIClientForREST (3.5.5)
+  > Copying GoogleAPIClientForREST from `/Users/kamil/Library/Caches/CocoaPods/Pods/Release/GoogleAPIClientForREST/3.5.5-2aa36` to `Pods/GoogleAPIClientForREST`
+
+-> Installing GoogleSignIn (7.1.0)
+  > Copying GoogleSignIn from `/Users/kamil/Library/Caches/CocoaPods/Pods/Release/GoogleSignIn/7.1.0-d4281` to `Pods/GoogleSignIn`
+  - Running pre install hooks
+  - Running pre integrate hooks
+
+Generating Pods project
+  - Creating Pods project
+  - Installing files into Pods project
+    - Adding source files
+    - Adding frameworks
+    - Adding libraries
+    - Adding resources
+    - Linking headers
+  - Installing Pod Targets
+    - Installing target `AppAuth` iOS 9.0
+      - Generating Info.plist file at `Pods/Target Support Files/AppAuth/ResourceBundle-AppAuthCore_Privacy-AppAuth-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/AppAuth/AppAuth.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/AppAuth/AppAuth-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/AppAuth/AppAuth-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/AppAuth/AppAuth-dummy.m`
+    - Installing target `GTMAppAuth` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/GTMAppAuth/ResourceBundle-GTMAppAuth_Privacy-GTMAppAuth-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/GTMAppAuth/GTMAppAuth.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/GTMAppAuth/GTMAppAuth-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/GTMAppAuth/GTMAppAuth-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/GTMAppAuth/GTMAppAuth-dummy.m`
+    - Installing target `GTMSessionFetcher` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/GTMSessionFetcher/ResourceBundle-GTMSessionFetcher_Core_Privacy-GTMSessionFetcher-Info.plist`
+      - Generating Info.plist file at `Pods/Target Support Files/GTMSessionFetcher/ResourceBundle-GTMSessionFetcher_Full_Privacy-GTMSessionFetcher-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher-dummy.m`
+    - Installing target `GoogleAPIClientForREST` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/GoogleAPIClientForREST/ResourceBundle-GoogleAPIClientForREST_Privacy-GoogleAPIClientForREST-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/GoogleAPIClientForREST/GoogleAPIClientForREST.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/GoogleAPIClientForREST/GoogleAPIClientForREST-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/GoogleAPIClientForREST/GoogleAPIClientForREST-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/GoogleAPIClientForREST/GoogleAPIClientForREST-dummy.m`
+    - Installing target `GoogleSignIn` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/GoogleSignIn/ResourceBundle-GoogleSignIn-GoogleSignIn-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/GoogleSignIn/GoogleSignIn.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/GoogleSignIn/GoogleSignIn-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/GoogleSignIn/GoogleSignIn-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/GoogleSignIn/GoogleSignIn-dummy.m`
+  - Installing Aggregate Targets
+    - Installing target `Pods-belman` iOS 18.0
+      - Generating Info.plist file at `Pods/Target Support Files/Pods-belman/Pods-belman-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/Pods-belman/Pods-belman.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/Pods-belman/Pods-belman-umbrella.h`
+      - Generating dummy source at `Pods/Target Support Files/Pods-belman/Pods-belman-dummy.m`
+  - Generating deterministic UUIDs
+  - Stabilizing target UUIDs
+  - Running post install hooks
+    - Podfile
+  - Writing Xcode project file to `Pods/Pods.xcodeproj`
+  Cleaning up sandbox directory
+
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `belman.xcworkspace` for this project from now on.
+
+Integrating target `Pods-belman` (`belman.xcodeproj` project)
+  - Running post integrate hooks
+  - Writing Lockfile in `Podfile.lock`
+  - Writing Manifest in `Pods/Manifest.lock`
+  CDN: trunk Relative path: CocoaPods-version.yml exists! Returning local because checking is only performed in repo update
+
+-> Pod installation complete! There are 3 dependencies from the Podfile and 5 total pods installed.
