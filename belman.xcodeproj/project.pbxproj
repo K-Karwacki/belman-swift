@@ -11,6 +11,7 @@
 		8EFDF0392DDDEA1D00657549 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8EFDF0382DDDEA1D00657549 /* GoogleSignInSwift */; };
 		8EFDF03C2DDDEA7600657549 /* Discovery in Frameworks */ = {isa = PBXBuildFile; productRef = 8EFDF03B2DDDEA7600657549 /* Discovery */; };
 		8EFDF03E2DDDEA7600657549 /* GoogleAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 8EFDF03D2DDDEA7600657549 /* GoogleAPIRuntime */; };
+		8EFDF0402DDDEFCC00657549 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8EFDF03F2DDDEFC200657549 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		8E587C3D2DD8C5230056BE91 /* belmanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = belmanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E587C472DD8C5230056BE91 /* belmanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = belmanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E587C792DDB975A0056BE91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8EFDF03F2DDDEFC200657549 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -87,6 +89,7 @@
 		8E587C272DD8C5200056BE91 = {
 			isa = PBXGroup;
 			children = (
+				8EFDF03F2DDDEFC200657549 /* .gitignore */,
 				8E587C792DDB975A0056BE91 /* Info.plist */,
 				8EB42E2E2DDBD4E200533006 /* belman */,
 				8E587C402DD8C5230056BE91 /* belmanTests */,
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EFDF0402DDDEFCC00657549 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
