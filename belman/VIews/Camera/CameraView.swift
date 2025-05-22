@@ -23,13 +23,13 @@ struct CameraView: View {
                     .ignoresSafeArea()
             }
             
-            VStack {
+            HStack {
                 Spacer()
                 
                 Button(action: {
                     viewModel.takePhoto()
                 }) {
-                    Text("Take Photo")
+                    Text("")
                         .font(.title2)
                         .padding()
                         .background(viewModel.isCameraAvailable ? Color.white : Color.gray)
@@ -37,12 +37,24 @@ struct CameraView: View {
                         .clipShape(Circle())
                 }
                 .disabled(!viewModel.isCameraAvailable)
-                .padding(.bottom, 20)
+//                .padding(.)
             }
         }
         .sheet(isPresented: $showingPhoto) {
             if let image = viewModel.capturedImage {
-                PhotoView(image: image)
+                VStack{
+                    PhotoView(image: image)
+                    HStack{
+                        Button("Retake"){
+                            showingPhoto = false
+                        }
+                        
+                        Button("Save"){
+                            Logger.shared.log("Photo accepted: ")
+                            showingPhoto = false
+                        }
+                    }
+                }
             }
         }
         .alert(item: Binding(

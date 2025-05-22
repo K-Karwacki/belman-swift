@@ -95,7 +95,6 @@
 				8E587C402DD8C5230056BE91 /* belmanTests */,
 				8E587C4A2DD8C5230056BE91 /* belmanUITests */,
 				8E587C312DD8C5200056BE91 /* Products */,
-				E0082F9D7353C4C5AA18F971 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,13 +106,6 @@
 				8E587C472DD8C5230056BE91 /* belmanUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E0082F9D7353C4C5AA18F971 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -17,6 +17,8 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
     override init() {
         super.init()
         configureCaptureSession()
+
+        
     }
     
     func configureCaptureSession() {
@@ -55,9 +57,26 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
                     self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
                     self.previewLayer?.videoGravity = .resizeAspectFill
                     self.isCameraAvailable = true
+                    
+
                 }
+//                if #available(iOS 17.0, *) {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                        if let connection = self.previewLayer?.connection,
+//                           let coordinator = AVCaptureDevice.RotationCoordinator() {
+//                            
+//                            
+////                            coordinator.coo(with: connection) { connection in
+////                                print("✅ Rotation coordinated")
+////                            }
+//                        } else {
+//                            print("⚠️ Unable to get connection or RotationCoordinator")
+//                        }
+//                    }
+//                }
                 
-                self.session.startRunning()
+                
+//                self.session.startRunning()
             } catch {
                 DispatchQueue.main.async {
                     self.error = error

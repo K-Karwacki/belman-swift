@@ -4,7 +4,7 @@ import AVFoundation
 
 @MainActor
 class CameraViewModel: ObservableObject {
-    @Published var listOfCapturedImages: Set<UIImage>?
+    @Published var collectionOfCapturedImages: Set<UIImage>?
     @Published var capturedImage: UIImage?
     @Published var errorMessage: String?
     @Published var isCameraAvailable: Bool = false
