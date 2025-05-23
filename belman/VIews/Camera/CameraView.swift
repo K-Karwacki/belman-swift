@@ -4,6 +4,8 @@ struct CameraView: View {
     @StateObject private var viewModel = CameraViewModel()
     @State private var showingPhoto = false
     
+    @EnvironmentObject var documentationViewModel: DocumentationViewModel
+    
     var body: some View {
         ZStack {
             if viewModel.previewLayer != nil {
@@ -40,21 +42,10 @@ struct CameraView: View {
 //                .padding(.)
             }
         }
-        .sheet(isPresented: $showingPhoto) {
-            if let image = viewModel.capturedImage {
-                VStack{
-                    PhotoView(image: image)
-                    HStack{
-                        Button("Retake"){
-                            showingPhoto = false
-                        }
-                        
-                        Button("Save"){
-                            Logger.shared.log("Photo accepted: ")
-                            showingPhoto = false
-                        }
-                    }
-                }
+        .sheet(isPresented: $viewModel.showingPhoto) {
+            VStack{
+                PhotoView()
+                    .environmentObject(viewModel)
             }
         }
         .alert(item: Binding(

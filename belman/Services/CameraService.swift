@@ -8,6 +8,7 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
     private let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "dk.easv.belman.captureSessionQueue")
     private let output = AVCapturePhotoOutput()
+    private var rotationCoordinator: AVCaptureDevice.RotationCoordinator?
     
     @Published var image: UIImage?
     @Published var error: Error?
@@ -17,8 +18,34 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
     override init() {
         super.init()
         configureCaptureSession()
-
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(deviceDidRotate),
+                                               name: UIDevice.orientationDidChangeNotification,
+                                               object: nil)
         
+    }
+    
+    @objc private func deviceDidRotate() {
+        applyCurrentRotation()
+    }
+
+    private func applyCurrentRotation() {
+        guard let layer = previewLayer,
+              let coordinator = rotationCoordinator else { return }
+
+        let angle = CGFloat(coordinator.videoRotationAngleForHorizonLevelPreview * .pi / 180)
+        
+        if(angle >= 45 && angle < 135){
+            layer.setAffineTransform(CGAffineTransform(rotationAngle: 0))
+        }else{
+            layer.setAffineTransform(CGAffineTransform(rotationAngle: 90))
+        }
+        
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func configureCaptureSession() {
@@ -57,26 +84,12 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
                     self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
                     self.previewLayer?.videoGravity = .resizeAspectFill
                     self.isCameraAvailable = true
-                    
-
+                    self.rotationCoordinator = AVCaptureDevice.RotationCoordinator(device: camera, previewLayer: self.previewLayer)
+                    self.applyCurrentRotation()
                 }
-//                if #available(iOS 17.0, *) {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                        if let connection = self.previewLayer?.connection,
-//                           let coordinator = AVCaptureDevice.RotationCoordinator() {
-//                            
-//                            
-////                            coordinator.coo(with: connection) { connection in
-////                                print("✅ Rotation coordinated")
-////                            }
-//                        } else {
-//                            print("⚠️ Unable to get connection or RotationCoordinator")
-//                        }
-//                    }
-//                }
                 
                 
-//                self.session.startRunning()
+                self.session.startRunning()
             } catch {
                 DispatchQueue.main.async {
                     self.error = error

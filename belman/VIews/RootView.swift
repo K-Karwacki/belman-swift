@@ -6,7 +6,7 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            AuthView() // This is your root view
+            AuthView() // First view 
                 .navigationDestination(for: AppScreen.self) { screen in
                     router.buildScreen(for: screen)
                 }

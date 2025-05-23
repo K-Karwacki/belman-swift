@@ -1,16 +1,37 @@
 import SwiftUI
 
 struct PhotoView: View {
-    let image: UIImage
-    
+    @EnvironmentObject var viewModel: CameraViewModel
+
     var body: some View {
         VStack{
-            Image(uiImage: image)
-                .resizable()
-                .scaledToFit()
-                .background(Color.black)
-                .ignoresSafeArea()
+            if viewModel.capturedImage != nil {
+                Image(uiImage: viewModel.capturedImage!)
+                    .resizable()
+                    .scaledToFit()
+                    .background(Color.black)
+                    .ignoresSafeArea()
+            }else{
+                Text("No image")
+            }
             
+            
+            HStack{
+                Button("Retake"){
+//                    showingPhoto = false
+//                    viewModel.showingPhoto = false;
+                }
+                Button(action:{
+//                            self.documentationViewModel.addPhoto("test", self.viewModel.capturedImage)
+//                            Logger.shared.log("Photo accepted: ")
+//                            showingPhoto = false
+                }){
+                    Text("Lala")
+                }
+//                        Button("Save"){
+//
+//                        }
+            }
         }
         
     }

@@ -9,6 +9,7 @@ class CameraViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var isCameraAvailable: Bool = false
     @Published var previewLayer: AVCaptureVideoPreviewLayer?
+    @Published var showingPhoto: Bool = false
     
     private let cameraService: CameraService
     private var cancellables = Set<AnyCancellable>()
@@ -33,6 +34,12 @@ class CameraViewModel: ObservableObject {
             return
         }
         cameraService.takePhoto()
+        showingPhoto = true
+    }
+    
+    func retake(){
+        showingPhoto = false
+        
     }
     
     private func setupBindings() {
