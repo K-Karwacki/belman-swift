@@ -1,0 +1,1 @@
+Application built with Swift that enables operators to seamlessly capture and upload photo documentation directly within the app. Users can then send the data via HTTP POST to a backend service for storage and review.
