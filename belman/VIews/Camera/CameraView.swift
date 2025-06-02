@@ -1,15 +1,22 @@
 import SwiftUI
 
 struct CameraView: View {
-    @StateObject private var viewModel = CameraViewModel()
-    @State private var showingPhoto = false
-    
     @EnvironmentObject var documentationViewModel: DocumentationViewModel
     
+    @StateObject private var cameraViewModel = CameraViewModel()
+    
+    @State private var showingPhoto = false
+    
+    @State private var currentCaptureStep: String?
+    
+    private var captureSteps = ["Top", "Left", "Front", "Right", "Back"]
+    
+
     var body: some View {
+        
         ZStack {
-            if viewModel.previewLayer != nil {
-                CameraPreview(previewLayer: $viewModel.previewLayer)
+            if cameraViewModel.previewLayer != nil {
+                CameraPreviewView(previewLayer: $cameraViewModel.previewLayer)
                     .ignoresSafeArea()
                     .background(Color.black)
                     .onAppear {
@@ -25,51 +32,84 @@ struct CameraView: View {
                     .ignoresSafeArea()
             }
             
+            VStack {
+                if let currentCaptureStep {
+                    Text("\(currentCaptureStep)")
+                }
+//                if let nextPosition = captureSteps.first(where: { !documentationViewModel.photoDict.keys.contains($0) }) {
+////                    currentCaptureStep = nextPosition
+//                    Text("Position: \(nextPosition)")
+//                        .font(.largeTitle)
+//                        .foregroundStyle(Color.belman_blue)
+//                        .padding(.top, 20)
+//                } else {
+//                    currentCaptureStep = "Extra"
+//                    Text(currentCaptureStep)
+//                        .font(.title2)
+//                        .foregroundStyle(.green)
+//                        .padding(.top, 20)
+//                }
+                
+                Spacer()
+            }
+            .onAppear{
+                updateStep()
+            }
             HStack {
                 Spacer()
                 
                 Button(action: {
-                    viewModel.takePhoto()
+                    cameraViewModel.takePhoto()
                 }) {
                     Text("")
-                        .font(.title2)
-                        .padding()
-                        .background(viewModel.isCameraAvailable ? Color.white : Color.gray)
+                        .font(.largeTitle)
+                        .padding(27)
+                        .background(cameraViewModel.isCameraAvailable ? Color.white : Color.gray)
                         .foregroundColor(.black)
                         .clipShape(Circle())
                 }
-                .disabled(!viewModel.isCameraAvailable)
-//                .padding(.)
+                .disabled(!cameraViewModel.isCameraAvailable)
+                .padding()
+
             }
         }
-        .sheet(isPresented: $viewModel.showingPhoto) {
+        .sheet(isPresented: $showingPhoto) {
             VStack{
-                PhotoView()
-                    .environmentObject(viewModel)
+                PhotoView(
+                    onSave:{
+                        self.documentationViewModel.addPhotoItem(photoItem: PhotoItem(image: self.cameraViewModel.capturedImage!, info: currentCaptureStep!))
+
+                        updateStep()
+                        showingPhoto = false
+                    },
+                    onRetake:{
+                        showingPhoto = false
+                    }
+                )
+                    .environmentObject(cameraViewModel)
+                    .environmentObject(documentationViewModel)
             }
         }
-        .alert(item: Binding(
-            get: { viewModel.errorMessage.map { ErrorMessage(message: $0) } },
-            set: { _ in viewModel.errorMessage = nil }
-        )) { error in
-            Alert(
-                title: Text("Camera Error"),
-                message: Text(error.message),
-                dismissButton: .default(Text("OK"))
-            )
-        }
-        .onChange(of: viewModel.capturedImage) { _, newValue in
+        .onChange(of: cameraViewModel.capturedImage) { _, newValue in
             showingPhoto = newValue != nil
         }
-        .onChange(of: viewModel.isCameraAvailable) { _, available in
+        .onChange(of: cameraViewModel.isCameraAvailable) { _, available in
             Logger.shared.log("Camera available: \(available)")
         }
     }
-}
+    
+    func updateStep(){
+        var i: Int = 0
+        if let step = captureSteps.first(where: { step in
+            !documentationViewModel.photoItemArray.contains(where: { $0.side == step })
+        }) {
+            currentCaptureStep = step
+        } else {
+            currentCaptureStep = "Extra\(i += 1)"
+        }
+    }
+    
 
-struct ErrorMessage: Identifiable {
-    let id = UUID()
-    let message: String
 }
 
 #Preview{

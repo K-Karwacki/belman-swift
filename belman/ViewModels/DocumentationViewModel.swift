@@ -1,22 +1,27 @@
 import SwiftUI
 
 class DocumentationViewModel: ObservableObject {
-    @State private var photos: [PhotoItem] = []
-    @Published var orderNumber: String?
-    @Published var operatorID: String?
+    @Published var photoItemArray: [PhotoItem] = []
+    @Published var documentationInfo = DocumentationInfo()
     
-    
-    
-    func setData(orderNumber: String, operatorID: String){
-        self.orderNumber = orderNumber
-        self.operatorID = operatorID
+    func setAuthInfo(orderNumber: String, operatorID: String){
+        documentationInfo.orderNumber = orderNumber
+        documentationInfo.operatorEmail = operatorID
     }
     
-    func addPhoto(photo: UIImage, position: String){
-        DispatchQueue.main.async {
-            let newPhoto = PhotoItem(position: position, imageData: photo.pngData()!)
-            self.photos.append(newPhoto)
-        }
+    func addPhotoItem(photoItem: PhotoItem){
+        self.photoItemArray.append(photoItem)
+    }
     
+    func resetModel(){
+        photoItemArray = []
+//        orderNumber = ""
+        documentationInfo = DocumentationInfo()
+    }
+    
+    func uploadDocumentation() async -> Bool{
+        let success = await RESTService.uploadPhotoDocumentation(documentationInfo: documentationInfo, photos: photoItemArray)
+        return success ? true : false
     }
 }
+

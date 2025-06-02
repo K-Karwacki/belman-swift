@@ -4,7 +4,6 @@ import SwiftUI
 struct MyApp: App {
     @StateObject private var router = NavigationRouter()
     @StateObject private var documentationViewModel = DocumentationViewModel()
-    
     var body: some Scene {
         WindowGroup {
             RootView()

@@ -18,41 +18,15 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
     override init() {
         super.init()
         configureCaptureSession()
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(deviceDidRotate),
-                                               name: UIDevice.orientationDidChangeNotification,
-                                               object: nil)
-        
-    }
-    
-    @objc private func deviceDidRotate() {
-        applyCurrentRotation()
     }
 
-    private func applyCurrentRotation() {
-        guard let layer = previewLayer,
-              let coordinator = rotationCoordinator else { return }
-
-        let angle = CGFloat(coordinator.videoRotationAngleForHorizonLevelPreview * .pi / 180)
-        
-        if(angle >= 45 && angle < 135){
-            layer.setAffineTransform(CGAffineTransform(rotationAngle: 0))
-        }else{
-            layer.setAffineTransform(CGAffineTransform(rotationAngle: 90))
-        }
-        
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     func configureCaptureSession() {
+        // Configure capture session on another thread/dispachqueue (session takes time to configure / concurency errors)
         sessionQueue.async {
             self.session.beginConfiguration()
             self.session.sessionPreset = .high
             
+            // Try to get the device's camera
             guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
                 DispatchQueue.main.async {
                     self.error = CameraError.deviceNotFound
@@ -61,13 +35,17 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
             }
             
             do {
+                // Inject camera into capture device input
                 let input = try AVCaptureDeviceInput(device: camera)
+                
                 guard self.session.canAddInput(input) else {
                     DispatchQueue.main.async {
                         self.error = CameraError.inputNotSupported
                     }
                     return
                 }
+                
+                // Add capture device input to the session
                 self.session.addInput(input)
                 
                 guard self.session.canAddOutput(self.output) else {
@@ -76,20 +54,21 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
                     }
                     return
                 }
+                
+                // Add capture photo output to the session
                 self.session.addOutput(self.output)
                 
                 self.session.commitConfiguration()
                 
+                // On main thread setup the preview layer (CALayer is tightly integrated with UIKit, and UIKit is not thread safe)
                 DispatchQueue.main.async {
                     self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
-                    self.previewLayer?.videoGravity = .resizeAspectFill
-                    self.isCameraAvailable = true
                     self.rotationCoordinator = AVCaptureDevice.RotationCoordinator(device: camera, previewLayer: self.previewLayer)
-                    self.applyCurrentRotation()
+//                    self.applyCurrentRotation()
                 }
                 
-                
                 self.session.startRunning()
+                self.isCameraAvailable = true
             } catch {
                 DispatchQueue.main.async {
                     self.error = error
@@ -123,8 +102,19 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
             error = CameraError.cameraNotReady
             return
         }
+        
         let settings = AVCapturePhotoSettings()
-        settings.flashMode = .auto
+        if let photoOutputConnection = output.connection(with: .video) {
+            let orientation = UIDevice.current.orientation
+            switch orientation {
+            case .portrait:
+                photoOutputConnection.videoRotationAngle = 90
+            case .landscapeLeft:
+                photoOutputConnection.videoRotationAngle = 0
+            default:
+                photoOutputConnection.videoRotationAngle = 90
+            }
+        }
         output.capturePhoto(with: settings, delegate: self)
     }
     
@@ -135,6 +125,7 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
             }
             return
         }
+        
         guard let data = photo.fileDataRepresentation(),
               let uiImage = UIImage(data: data) else {
             DispatchQueue.main.async {
@@ -142,26 +133,10 @@ class CameraService: NSObject, AVCapturePhotoCaptureDelegate {
             }
             return
         }
+        
         DispatchQueue.main.async {
             self.image = uiImage
         }
     }
 }
-
-enum CameraError: Error, LocalizedError {
-    case deviceNotFound
-    case inputNotSupported
-    case outputNotSupported
-    case cameraNotReady
-    case imageProcessingFailed
     
-    var errorDescription: String? {
-        switch self {
-        case .deviceNotFound: return "No camera device found."
-        case .inputNotSupported: return "Camera input not supported."
-        case .outputNotSupported: return "Photo output not supported."
-        case .cameraNotReady: return "Camera is not ready."
-        case .imageProcessingFailed: return "Failed to process captured image."
-        }
-    }
-}

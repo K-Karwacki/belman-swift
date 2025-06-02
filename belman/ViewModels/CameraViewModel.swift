@@ -2,9 +2,7 @@ import Combine
 import SwiftUI
 import AVFoundation
 
-@MainActor
 class CameraViewModel: ObservableObject {
-    @Published var collectionOfCapturedImages: Set<UIImage>?
     @Published var capturedImage: UIImage?
     @Published var errorMessage: String?
     @Published var isCameraAvailable: Bool = false
@@ -12,7 +10,6 @@ class CameraViewModel: ObservableObject {
     @Published var showingPhoto: Bool = false
     
     private let cameraService: CameraService
-    private var cancellables = Set<AnyCancellable>()
     
     // Initialize CameraViewModel with CameraService
     init(cameraService: CameraService = CameraService()) {
@@ -20,26 +17,8 @@ class CameraViewModel: ObservableObject {
         setupBindings()
     }
     
-    func closeCamera(){
-        guard cameraService.isCameraAvailable else{
-            errorMessage = "Camera already closed"
-            return
-        }
-        cameraService.stopCaptureSession();
-    }
-    
     func takePhoto() {
-        guard cameraService.isCameraAvailable else {
-            errorMessage = "Camera is not available."
-            return
-        }
         cameraService.takePhoto()
-        showingPhoto = true
-    }
-    
-    func retake(){
-        showingPhoto = false
-        
     }
     
     private func setupBindings() {
@@ -59,5 +38,6 @@ class CameraViewModel: ObservableObject {
         cameraService.$previewLayer
             .receive(on: DispatchQueue.main)
             .assign(to: &$previewLayer)
+       
     }
 }

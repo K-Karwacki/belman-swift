@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  belman
+//
+//  Created by Kamil Karwacki on 24/05/2025.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-projec
+GOOGLE_CLIENT_ID=797781523057-49r89fk2a8cqcrash76hdu5474nf20gn.apps.googleusercontent.com
+GOOGLE_REDIRECT_URI=com.googleusercontent.apps.797781523057-49r89fk2a8cqcrash76hdu5474nf20gn
